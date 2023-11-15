@@ -1,0 +1,3 @@
+[submodule "gsheet-"]
+	path = gsheet-
+	url = https://github.com/microcosm/gsheet-
