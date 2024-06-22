@@ -13,3 +13,8 @@ To use:
 - `cd abnb-`
 - (edit `abnb.gs`)
 - `grunt` to generate `built.gs`
+
+To keep the submodule synced:
+- `cd gsheet-`
+- `git checkout master`
+- `git pull origin master`
