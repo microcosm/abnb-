@@ -17,45 +17,46 @@ function getValuesSheetConfig() {
 
 function getFeatureSheetConfigs() {
   return [
-    this.getRemoteMaintenanceConfig(),
-    this.getOnsiteMaintenanceConfig()
+    this.getRemoteConfig(),
+    this.getOnsiteConfig()
   ];
 }
 
-function getOnsiteMaintenanceConfig() {
-  let config = this.getRemoteMaintenanceConfig();
-  config.name = 'Onsite Maintenance';
-  config.sidebar.heading.title = 'Onsite Maintenance';
+function getOnsiteConfig() {
+  let config = this.getRemoteConfig();
+  config.name = 'Onsite';
+  config.sidebar.heading.title = 'Onsite';
   return config;
 }
 
-function getRemoteMaintenanceConfig() {
+function getRemoteConfig() {
   const sections = ['titles', 'titlesAboveBelow', 'headers', 'main', 'underMain', 'rowsOutside', 'columnsOutside'];
 
   return {
-    name: 'Remote Maintenance',
+    name: 'Remote',
     features: {
       orderSheetSections: {
         events: [Event.onOvernightTimer],
         sections: SectionsCategory.MAIN,
         order: [
-          { column: 'M', direction: 'ascending' },
+          { column: 'N', direction: 'ascending' },
+          { column: 'J', direction: 'ascending' },
           { column: 'I', direction: 'ascending' },
-          { column: 'H', direction: 'ascending' },
           { column: 'B', direction: 'ascending' },
-          { column: 'C', direction: 'ascending' }
+          { column: 'C', direction: 'ascending' },
+          { column: 'D', direction: 'ascending' }
         ]
       }
     },
     sidebar: {
       heading: {
         type: 'heading',
-        title: 'Remote Maintenance'
+        title: 'Remote'
       },
       arrange: {
         type: 'buttons',
         title: 'Arrange by',
-        options: ['Next Due', 'Locale', 'Schedule'],
+        options: ['Next Due', 'Assignee', 'Locale', 'Schedule'],
         features: {
           orderSheetSections: {
             events: [Event.onSidebarSubmit],
@@ -63,20 +64,31 @@ function getRemoteMaintenanceConfig() {
             priority: 'HIGH_PRIORITY',
             by: {
               nextDue: [
-                { column: 'M', direction: 'ascending' },
+                { column: 'N', direction: 'ascending' },
+                { column: 'J', direction: 'ascending' },
                 { column: 'I', direction: 'ascending' },
-                { column: 'H', direction: 'ascending' },
                 { column: 'B', direction: 'ascending' },
-                { column: 'C', direction: 'ascending' }
+                { column: 'C', direction: 'ascending' },
+                { column: 'D', direction: 'ascending' }
+              ],
+              assignee: [
+                { column: 'C', direction: 'ascending' },
+                { column: 'N', direction: 'ascending' },
+                { column: 'J', direction: 'ascending' },
+                { column: 'I', direction: 'ascending' },
+                { column: 'B', direction: 'ascending' },
+                { column: 'D', direction: 'ascending' }
               ],
               locale: [
                 { column: 'B', direction: 'ascending' },
-                { column: 'C', direction: 'ascending' }
+                { column: 'C', direction: 'ascending' },
+                { column: 'D', direction: 'ascending' }
               ],
               schedule: [
-                { column: 'K', direction: 'ascending' },
+                { column: 'L', direction: 'ascending' },
                 { column: 'B', direction: 'ascending' },
-                { column: 'C', direction: 'ascending' }
+                { column: 'C', direction: 'ascending' },
+                { column: 'D', direction: 'ascending' }
               ]
             }
           }
