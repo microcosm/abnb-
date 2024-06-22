@@ -1,11 +1,11 @@
 {
-  "name": "abnb-",
+  "name": "mega-",
   "version": "1.0.0",
   "description": "Personal implementation of gsheet-",
-  "main": "abnb.gs",
+  "main": "mega.gs",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/microcosm/abnb-.git"
+    "url": "git+https://github.com/microcosm/mega-.git"
   },
   "devDependencies": {
     "grunt": "^1.4.1",
