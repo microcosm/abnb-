@@ -17,15 +17,23 @@ function getValuesSheetConfig() {
 
 function getFeatureSheetConfigs() {
   return [
-    this.getMaintenanceConfig()
+    this.getRemoteMaintenanceConfig(),
+    this.getOnsiteMaintenanceConfig()
   ];
 }
 
-function getMaintenanceConfig() {
+function getOnsiteMaintenanceConfig() {
+  let config = this.getRemoteMaintenanceConfig();
+  config.name = 'Onsite Maintenance';
+  config.sidebar.heading.title = 'Onsite Maintenance';
+  return config;
+}
+
+function getRemoteMaintenanceConfig() {
   const sections = ['titles', 'titlesAboveBelow', 'headers', 'main', 'underMain', 'rowsOutside', 'columnsOutside'];
 
   return {
-    name: 'Maintenance',
+    name: 'Remote Maintenance',
     features: {
       orderSheetSections: {
         events: [Event.onOvernightTimer],
@@ -42,7 +50,7 @@ function getMaintenanceConfig() {
     sidebar: {
       heading: {
         type: 'heading',
-        title: 'Maintenance'
+        title: 'Remote Maintenance'
       },
       arrange: {
         type: 'buttons',
