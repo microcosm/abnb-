@@ -18,15 +18,10 @@ function getValuesSheetConfig() {
 function getFeatureSheetConfigs() {
   return [
     this.getRemoteConfig(),
-    this.getOnsiteConfig()
+    this.getOnsiteConfig(),
+    this.getServiceConfig(),
+    this.getSeasonalConfig()
   ];
-}
-
-function getOnsiteConfig() {
-  let config = this.getRemoteConfig();
-  config.name = 'Onsite';
-  config.sidebar.heading.title = 'Onsite';
-  return config;
 }
 
 function getRemoteConfig() {
@@ -39,8 +34,8 @@ function getRemoteConfig() {
         events: [Event.onOvernightTimer],
         sections: SectionsCategory.MAIN,
         order: [
-          { column: 'N', direction: 'ascending' },
-          { column: 'J', direction: 'ascending' },
+          { column: 'O', direction: 'ascending' },
+          { column: 'K', direction: 'ascending' },
           { column: 'I', direction: 'ascending' },
           { column: 'B', direction: 'ascending' },
           { column: 'C', direction: 'ascending' },
@@ -64,8 +59,8 @@ function getRemoteConfig() {
             priority: 'HIGH_PRIORITY',
             by: {
               nextDue: [
-                { column: 'N', direction: 'ascending' },
-                { column: 'J', direction: 'ascending' },
+                { column: 'O', direction: 'ascending' },
+                { column: 'K', direction: 'ascending' },
                 { column: 'I', direction: 'ascending' },
                 { column: 'B', direction: 'ascending' },
                 { column: 'C', direction: 'ascending' },
@@ -73,8 +68,8 @@ function getRemoteConfig() {
               ],
               assignee: [
                 { column: 'C', direction: 'ascending' },
-                { column: 'N', direction: 'ascending' },
-                { column: 'J', direction: 'ascending' },
+                { column: 'O', direction: 'ascending' },
+                { column: 'K', direction: 'ascending' },
                 { column: 'I', direction: 'ascending' },
                 { column: 'B', direction: 'ascending' },
                 { column: 'D', direction: 'ascending' }
@@ -85,7 +80,7 @@ function getRemoteConfig() {
                 { column: 'D', direction: 'ascending' }
               ],
               schedule: [
-                { column: 'L', direction: 'ascending' },
+                { column: 'M', direction: 'ascending' },
                 { column: 'B', direction: 'ascending' },
                 { column: 'C', direction: 'ascending' },
                 { column: 'D', direction: 'ascending' }
@@ -96,4 +91,25 @@ function getRemoteConfig() {
       }
     }
   };
+}
+
+function getOnsiteConfig() {
+  let config = this.getRemoteConfig();
+  config.name = 'Onsite';
+  config.sidebar.heading.title = 'Onsite';
+  return config;
+}
+
+function getServiceConfig() {
+  let config = this.getRemoteConfig();
+  config.name = 'Service';
+  config.sidebar.heading.title = 'Service';
+  return config;
+}
+
+function getSeasonalConfig() {
+  let config = this.getRemoteConfig();
+  config.name = 'Seasonal';
+  config.sidebar.heading.title = 'Seasonal';
+  return config;
 }
